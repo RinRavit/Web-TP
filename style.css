@@ -1,0 +1,432 @@
+.TP04-1 {
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid rgb(6, 0, 176);
+}
+.box-border {
+  width: 600px;
+  height: 600px;
+  border: 3px solid black;
+  margin: 50px 50px 50px 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+}
+.box1-1,
+.box1-2,
+.box1-3,
+.box1-4 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(202, 202, 202);
+}
+.box1-child {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+.grid1x4-box1-1,
+.grid1x4-box1-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-block: 50px;
+}
+.box1-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box1-3 {
+  display: flex;
+  align-items: end;
+}
+.box1-4 {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+/* End of case 1 */
+
+/* case 2 */
+.box2-1,
+.box2-2,
+.box2-3,
+.box2-4 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(202, 202, 202);
+}
+
+.box2-1 > div {
+  position: relative;
+  top: 0;
+}
+.box2-2 > div {
+  position: relative;
+  top: 70px;
+  left: 70px;
+}
+.box2-3 > div {
+  position: relative;
+  top: 140px;
+}
+.box2-4 > div {
+  position: relative;
+  top: 70px;
+  left: 140px;
+}
+
+/* End of case 2 */
+/* End of TP04.1 */
+
+/* TP04.2 */
+.TP04-2 {
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid rgb(6, 0, 176);
+  margin-top: 50px;
+}
+.box2-child {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+/* case 1 */
+.box3-1,
+.box3-2,
+.box3-3,
+.box3-4 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(202, 202, 202);
+}
+.box3-1 {
+  display: flex;
+  justify-content: center;
+}
+.box3-1 > div {
+  width: 190px;
+  height: 50px;
+}
+
+.box3-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box3-2 > div {
+  width: 190px;
+  height: 50px;
+}
+
+.box3-3 {
+  display: flex;
+  justify-content: left;
+}
+.box3-3 > div {
+  width: 50px;
+  height: 190px;
+}
+
+.box3-4 {
+  display: flex;
+  justify-content: right;
+}
+.box3-4 > div {
+  width: 50px;
+  height: 190px;
+}
+/* End of case 1 */
+
+/* case 2 */
+.box4-1,
+.box4-2,
+.box4-3,
+.box4-4 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(202, 202, 202);
+}
+.box4-1 > div {
+  position: relative;
+  width: 190px;
+  height: 50px;
+  top: 0;
+}
+.box4-2 > div {
+  position: relative;
+  width: 190px;
+  height: 50px;
+  top: 70px;
+}
+.box4-3 > div {
+  position: relative;
+  width: 50px;
+  height: 190px;
+  top: 0;
+}
+.box4-4 > div {
+  position: relative;
+  width: 50px;
+  height: 190px;
+  left: 140px;
+}
+/* End of case 2 */
+/* End of TP04.2 */
+
+/* TP04.3 */
+.TP04-3 {
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid rgb(6, 0, 176);
+  margin-top: 50px;
+}
+
+.colomn-box {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(27, 107, 255);
+  border: 2px solid black;
+  margin: 5px 5px 5px 5px;
+}
+
+/* case 1 */
+.box5-1,
+.box5-2,
+.box5-3,
+.box5-4 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(202, 202, 202);
+}
+.box5-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-colomn1x3-1-1 {
+  width: 190px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+
+.box5-2 {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.box-colomn1x3-1-2 {
+  width: 190px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+
+.box5-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-colomn1x3-1-3 {
+  width: 60px;
+  height: 190px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+
+.box5-4 {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.box-colomn1x3-1-4 {
+  width: 60px;
+  height: 190px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+.box5-3 > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* End of case 1 */
+
+/* case 2 */
+.box6-1,
+.box6-2,
+.box6-3,
+.box6-4 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(202, 202, 202);
+}
+
+.colomn-box1,
+.colomn-box2,
+.colomn-box3,
+.colomn-box4,
+.colomn-box5,
+.colomn-box6,
+.colomn-box7,
+.colomn-box8,
+.colomn-box9,
+.colomn-box10,
+.colomn-box11,
+.colomn-box12 {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(27, 107, 255);
+  border: 2px solid black;
+}
+.box-colomn1x3-2-1 {
+  width: 190px;
+  height: 60px;
+  position: relative;
+  top: 65px;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+.colomn-box1 {
+  position: relative;
+  top: 3px;
+  left: 5px;
+}
+.colomn-box2 {
+  position: relative;
+  left: 68px;
+  top: -51px;
+}
+.colomn-box3 {
+  position: relative;
+  left: 130px;
+  top: -105px;
+}
+.box-colomn1x3-2-2 {
+  width: 190px;
+  height: 60px;
+  position: relative;
+  top: 130px;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+
+.colomn-box4 {
+  position: relative;
+  top: 3px;
+  left: 5px;
+}
+.colomn-box5 {
+  position: relative;
+  left: 68px;
+  top: -51px;
+}
+.colomn-box6 {
+  position: relative;
+  left: 130px;
+  top: -105px;
+}
+
+.box-colomn1x3-2-3 {
+  width: 60px;
+  height: 190px;
+  position: relative;
+  left: 65px;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+.colomn-box7 {
+  position: relative;
+  left: 3px;
+  top: 5px;
+}
+.colomn-box8 {
+  position: relative;
+  left: 3px;
+  top: 14px;
+}
+.colomn-box9 {
+  position: relative;
+  left: 3px;
+  top: 22px;
+}
+.box-colomn1x3-2-4 {
+  width: 60px;
+  height: 190px;
+  position: relative;
+  left: 65px;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 114, 67);
+}
+.colomn-box10 {
+  position: relative;
+  left: 3px;
+  top: 5px;
+}
+.colomn-box11 {
+  position: relative;
+  left: 3px;
+  top: 14px;
+}
+.colomn-box12 {
+  position: relative;
+  left: 3px;
+  top: 22px;
+}
+
+/* End of case 2 */
+
+/* End of TP04.3 */
+
+/* TP04.4 */
+
+/* End of TP04.4 */
