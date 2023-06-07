@@ -545,7 +545,57 @@
 /* End of grid1x2-top */
 
 /* grid1x2-buttom */
+.grid1x2-buttom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* box 3 */
+.grid1x2-box2-1 {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  margin-top: 50px;
+  background-color: rgb(202, 202, 202);
+}
+.grid-left {
+  width: 120px;
+  height: 190px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+}
+.grid-left1 {
+  width: 100px;
+  height: 60px;
+  margin: 5px 5px 5px 5px;
+  background-color: aqua;
+}
+.grid-left2 {
+  width: 100px;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  background-color: chartreuse;
+}
+.grid-left2-left-1x2 {
+  width: 60px;
+  height: 60px;
+  background-color: darkmagenta;
+}
+.grid-left2-left-1x2 .grid-right {
+  width: 60px;
+  height: 190px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  background-color: rgb(241, 114, 67);
+}
 /* End of box 3 */
 /* End of grid1x2-buttom */
 
