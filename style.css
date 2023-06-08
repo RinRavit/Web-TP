@@ -1,3 +1,4 @@
+/* TP04.1.Child element positioning*/
 .TP04-1 {
   display: flex;
   justify-content: space-between;
@@ -12,6 +13,7 @@
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
 }
+/* case 1 */
 .box1-1,
 .box1-2,
 .box1-3,
@@ -87,9 +89,12 @@
 }
 
 /* End of case 2 */
-/* End of TP04.1 */
 
-/* TP04.2 */
+/* End of TP04.1.Child element positioning */
+
+/* --------------------------------------- */
+
+/* TP04.2.Child element alignment */
 .TP04-2 {
   display: flex;
   justify-content: space-between;
@@ -188,9 +193,12 @@
   left: 140px;
 }
 /* End of case 2 */
-/* End of TP04.2 */
 
-/* TP04.3 */
+/* End of TP04.2.Child element alignment */
+
+/* ------------------------------------------- */
+
+/* TP04.3.Row and Column */
 .TP04-3 {
   display: flex;
   justify-content: space-between;
@@ -198,7 +206,7 @@
   margin-top: 50px;
 }
 
-.colomn-box {
+.column-box {
   width: 50px;
   height: 50px;
   background-color: rgb(27, 107, 255);
@@ -220,7 +228,7 @@
   justify-content: center;
   align-items: center;
 }
-.box-colomn1x3-1-1 {
+.box-column1x3-1-1 {
   width: 190px;
   height: 60px;
   display: flex;
@@ -237,7 +245,7 @@
   justify-content: center;
   align-items: end;
 }
-.box-colomn1x3-1-2 {
+.box-column1x3-1-2 {
   width: 190px;
   height: 60px;
   display: flex;
@@ -254,7 +262,7 @@
   justify-content: center;
   align-items: center;
 }
-.box-colomn1x3-1-3 {
+.box-column1x3-1-3 {
   width: 60px;
   height: 190px;
   display: flex;
@@ -271,7 +279,7 @@
   justify-content: end;
   align-items: center;
 }
-.box-colomn1x3-1-4 {
+.box-column1x3-1-4 {
   width: 60px;
   height: 190px;
   display: flex;
@@ -299,126 +307,123 @@
   background-color: rgb(202, 202, 202);
 }
 
-.colomn-box1,
-.colomn-box2,
-.colomn-box3,
-.colomn-box4,
-.colomn-box5,
-.colomn-box6,
-.colomn-box7,
-.colomn-box8,
-.colomn-box9,
-.colomn-box10,
-.colomn-box11,
-.colomn-box12 {
+.column-box1,
+.column-box2,
+.column-box3,
+.column-box4,
+.column-box5,
+.column-box6,
+.column-box7,
+.column-box8,
+.column-box9,
+.column-box10,
+.column-box11,
+.column-box12 {
   width: 50px;
   height: 50px;
   background-color: rgb(27, 107, 255);
   border: 2px solid black;
 }
-.box-colomn1x3-2-1 {
+.box-column1x3-2-1 {
   width: 190px;
   height: 60px;
   position: relative;
   top: 65px;
   margin: 5px 5px 5px 5px;
   font-size: 12px;
-  color: white;
   background-color: rgb(241, 114, 67);
 }
-.colomn-box1 {
+.column-box1 {
   position: relative;
   top: 3px;
   left: 5px;
 }
-.colomn-box2 {
+.column-box2 {
   position: relative;
   left: 68px;
   top: -51px;
 }
-.colomn-box3 {
+.column-box3 {
   position: relative;
   left: 130px;
   top: -105px;
 }
-.box-colomn1x3-2-2 {
+.box-column1x3-2-2 {
   width: 190px;
   height: 60px;
   position: relative;
   top: 130px;
   margin: 5px 5px 5px 5px;
   font-size: 12px;
-  color: white;
   background-color: rgb(241, 114, 67);
 }
 
-.colomn-box4 {
+.column-box4 {
   position: relative;
   top: 3px;
   left: 5px;
 }
-.colomn-box5 {
+.column-box5 {
   position: relative;
   left: 68px;
   top: -51px;
 }
-.colomn-box6 {
+.column-box6 {
   position: relative;
   left: 130px;
   top: -105px;
 }
 
-.box-colomn1x3-2-3 {
+.box-column1x3-2-3 {
   width: 60px;
   height: 190px;
   position: relative;
   left: 65px;
   margin: 5px 5px 5px 5px;
   font-size: 12px;
-  color: white;
   background-color: rgb(241, 114, 67);
 }
-.colomn-box7 {
+.column-box7 {
   position: relative;
   left: 3px;
   top: 5px;
 }
-.colomn-box8 {
+.column-box8 {
   position: relative;
   left: 3px;
   top: 14px;
 }
-.colomn-box9 {
+.column-box9 {
   position: relative;
   left: 3px;
   top: 22px;
 }
-.box-colomn1x3-2-4 {
+.box-column1x3-2-4 {
   width: 60px;
   height: 190px;
   position: relative;
   left: 130px;
   margin: 5px 5px 5px 5px;
   font-size: 12px;
-  color: white;
   background-color: rgb(241, 114, 67);
 }
-.colomn-box10 {
+.column-box10 {
   position: relative;
   left: 3px;
   top: 5px;
 }
-.colomn-box11 {
+.column-box11 {
   position: relative;
   left: 3px;
   top: 14px;
 }
-.colomn-box12 {
+.column-box12 {
   position: relative;
   left: 3px;
   top: 22px;
 }
 /* End of case 2 */
+
 /* End of TP04.3 */
 
 /* TP04.4 */
@@ -628,11 +633,185 @@
 
 /* End of TP04.4 */
 
-/* TP04.4 */
+/* TP04.5.Absolute positioning */
 .TP04-5 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   border: 3px solid rgb(6, 0, 176);
   margin-top: 50px;
 }
-/* End TP04.4 */
+.box10-1,
+.box10-2,
+.box10-3,
+.box10-4 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(202, 202, 202);
+}
+
+.column-box21,
+.column-box22,
+.column-box23,
+.column-box24,
+.column-box25,
+.column-box26,
+.column-box27,
+.column-box28,
+.column-box29,
+.column-box30,
+.column-box31,
+.column-box32 {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(27, 107, 255);
+  border: 2px solid black;
+}
+.box-column1x3-3-1 {
+  width: 190px;
+  height: 60px;
+  position: absolute;
+  top: 3228px;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  background-color: rgb(241, 114, 67);
+}
+.column-box21 {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+}
+.column-box22 {
+  position: absolute;
+  left: 68px;
+  top: 3px;
+}
+.column-box23 {
+  position: absolute;
+  left: 130px;
+  top: 3px;
+}
+.box-column1x3-3-2 {
+  width: 190px;
+  height: 60px;
+  position: absolute;
+  top: 3592px;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  background-color: rgb(241, 114, 67);
+}
+
+.column-box24 {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+}
+.column-box25 {
+  position: absolute;
+  left: 68px;
+  top: 3px;
+}
+.column-box26 {
+  position: absolute;
+  left: 130px;
+  top: 3px;
+}
+
+.box-column1x3-3-3 {
+  width: 60px;
+  height: 190px;
+  position: absolute;
+  left: 828px;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  background-color: rgb(241, 114, 67);
+}
+.column-box27 {
+  position: absolute;
+  left: 3px;
+  top: 5px;
+}
+.column-box28 {
+  position: absolute;
+  left: 3px;
+  top: 67px;
+}
+.column-box29 {
+  position: absolute;
+  left: 3px;
+  top: 130px;
+}
+
+.box-column1x3-3-4 {
+  width: 60px;
+  height: 190px;
+  position: absolute;
+  left: 892px;
+  margin: 5px 5px 5px 5px;
+  font-size: 12px;
+  background-color: rgb(241, 114, 67);
+}
+.column-box30 {
+  position: absolute;
+  left: 3px;
+  top: 5px;
+}
+.column-box31 {
+  position: absolute;
+  left: 3px;
+  top: 67px;
+}
+.column-box32 {
+  position: absolute;
+  left: 3px;
+  top: 130px;
+}
+/* End TP04.5.Absolute positioning */
+
+/* TP04.6.Absolute positioning */
+.TP04-6 {
+  display: flex;
+  justify-content: center;
+  border: 3px solid rgb(6, 0, 176);
+  margin-top: 50px;
+}
+.box-border-TP04-6 {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  border: 3px solid black;
+  margin: 50px 50px 50px 50px;
+}
+.box1-TP04-6,
+.box2-TP04-6 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(202, 202, 202);
+}
+.box1-TP04-6 {
+  position: absolute;
+  left: 100px;
+  top: 50px;
+}
+.box2-TP04-6 {
+  position: absolute;
+  left: 300px;
+  top: 300px;
+}
+.box1-inside,
+.box2-inside {
+  width: 120px;
+  height: 120px;
+  background-color: rgb(241, 114, 67);
+}
+.box1-inside {
+  position: absolute;
+  top: 40px;
+  left: -60px;
+}
+.box2-inside {
+  position: absolute;
+  top: 140px;
+  left: 40px;
+}
+
+/* End of TP04.6.Absolute positioning */
