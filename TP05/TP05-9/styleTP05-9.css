@@ -1,0 +1,22 @@
+.container {
+  width: 800px;
+  height: 600px;
+  border: 3px solid black;
+  position: fixed;
+}
+h1 {
+  font-size: 30px;
+}
+.header {
+  width: 800px;
+  height: 30px;
+  font-size: 20px;
+  background-color: rgb(172, 172, 172);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  width: 800px;
+  height: auto;
+}

@@ -778,7 +778,7 @@
 .TP04-6 {
   display: flex;
   justify-content: center;
-  border: 3px solid rgb(6, 0, 176);
+  /* border: 3px solid rgb(6, 0, 176); */
   margin-top: 50px;
 }
 .box-border-TP04-6 {
@@ -822,3 +822,89 @@
 }
 
 /* End of TP04.6.Absolute positioning */
+
+/* TP04.7. Absolute positioning */
+.TP04-7 {
+  display: flex;
+  justify-content: center;
+  border: 3px solid rgb(6, 0, 176);
+  margin-top: 800px;
+}
+.grid1x2-7-1 {
+  width: 600px;
+  height: 600px;
+  border: 3px solid black;
+  margin: 50px 50px 50px 50px;
+}
+/* grid1x2-top */
+.grid1x2-7-top {
+  display: flex;
+  justify-content: space-between;
+}
+/* box 1 */
+.grid1x2-7-box1-1 {
+  width: 200px;
+  height: 200px;
+  margin-left: 50px;
+  margin-top: 50px;
+  background-color: rgb(202, 202, 202);
+}
+.box1-top {
+  width: 120px;
+  height: 40px;
+  background-color: orange;
+  position: absolute;
+  left: 420px;
+  top: 4730px;
+}
+.box1-middle {
+  width: 40px;
+  height: 120px;
+  background-color: rgb(203, 154, 63);
+  position: absolute;
+  left: 460px;
+  top: 4770px;
+}
+.box1-buttom {
+  width: 120px;
+  height: 40px;
+  background-color: orange;
+  position: absolute;
+  left: 420px;
+  top: 4800px;
+}
+/* End of box 1 */
+
+/* box 2 */
+.grid1x2-7-box1-2 {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  margin-top: 50px;
+  background-color: rgb(202, 202, 202);
+}
+
+/* End of box 2 */
+/* End of grid1x2-top */
+
+/* grid1x2-buttom */
+.grid1x2-7-buttom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* box 3 */
+.grid1x2-7-box2-1 {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  margin-top: 50px;
+  background-color: rgb(202, 202, 202);
+}
+
+/* End of box 3 */
+/* End of grid1x2-buttom */
+
+/* End of TP04.4 */
