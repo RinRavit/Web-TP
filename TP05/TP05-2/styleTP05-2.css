@@ -1,0 +1,15 @@
+.wrapper {
+  width: 400px;
+  height: 400px;
+  background-color: rgb(174, 174, 174);
+}
+.flying-box {
+  width: 150px;
+  height: 50px;
+  background-color: rgb(255, 112, 112);
+  position: relative;
+  left: 125px;
+  top: 170px;
+  text-align: center;
+  padding-top: 20px;
+}

@@ -1,0 +1,17 @@
+.grid {
+  width: 650px;
+  height: 250px;
+  background-color: rgb(193, 193, 193);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.box {
+  width: 200px;
+  height: 20px;
+  background-color: rgb(67, 244, 244);
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+}

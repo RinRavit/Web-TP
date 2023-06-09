@@ -1,0 +1,21 @@
+.wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aqua;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.small {
+  display: none;
+  width: 150px;
+  height: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 74, 111);
+}
