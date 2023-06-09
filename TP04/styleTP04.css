@@ -87,9 +87,7 @@
   top: 70px;
   left: 140px;
 }
-
 /* End of case 2 */
-
 /* End of TP04.1.Child element positioning */
 
 /* --------------------------------------- */
@@ -198,7 +196,7 @@
 
 /* ------------------------------------------- */
 
-/* TP04.3.Row and Column */
+/* TP04.3.Row and Column Layout*/
 .TP04-3 {
   display: flex;
   justify-content: space-between;
@@ -348,6 +346,7 @@
   left: 130px;
   top: -105px;
 }
+
 .box-column1x3-2-2 {
   width: 190px;
   height: 60px;
@@ -423,10 +422,9 @@
   top: 22px;
 }
 /* End of case 2 */
-
 /* End of TP04.3 */
 
-/* TP04.4 */
+/* TP04.4.Row and Column layout with flex directin */
 .TP04-4 {
   display: flex;
   justify-content: center;
@@ -639,6 +637,15 @@
   justify-content: center;
   border: 3px solid rgb(6, 0, 176);
   margin-top: 50px;
+}
+.box-border {
+  width: 600px;
+  height: 600px;
+  border: 3px solid black;
+  margin: 50px 50px 50px 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
 }
 .box10-1,
 .box10-2,
