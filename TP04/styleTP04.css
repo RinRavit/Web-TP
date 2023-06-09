@@ -854,15 +854,15 @@
   height: 40px;
   background-color: orange;
   position: absolute;
-  left: 420px;
-  top: 4730px;
+  left: 500px;
+  top: 4735px;
 }
 .box1-middle {
   width: 40px;
-  height: 120px;
-  background-color: rgb(203, 154, 63);
+  height: 105px;
+  background-color: orange;
   position: absolute;
-  left: 460px;
+  left: 540px;
   top: 4770px;
 }
 .box1-buttom {
@@ -870,8 +870,8 @@
   height: 40px;
   background-color: orange;
   position: absolute;
-  left: 420px;
-  top: 4800px;
+  left: 500px;
+  top: 4875px;
 }
 /* End of box 1 */
 
@@ -885,7 +885,22 @@
   margin-top: 50px;
   background-color: rgb(202, 202, 202);
 }
-
+.box2-top {
+  width: 120px;
+  height: 40px;
+  background-color: orange;
+  position: absolute;
+  left: 800px;
+  top: 4735px;
+}
+.box2-buttom {
+  width: 40px;
+  height: 140px;
+  background-color: orange;
+  position: absolute;
+  left: 840px;
+  top: 4770px;
+}
 /* End of box 2 */
 /* End of grid1x2-top */
 
@@ -902,6 +917,30 @@
   display: flex;
   margin-top: 50px;
   background-color: rgb(202, 202, 202);
+}
+.box3-top {
+  width: 120px;
+  height: 40px;
+  background-color: orange;
+  position: absolute;
+  left: 650px;
+  top: 4985px;
+}
+.box3-middle {
+  width: 40px;
+  height: 105px;
+  background-color: orange;
+  position: absolute;
+  left: 650px;
+  top: 5020px;
+}
+.box3-buttom {
+  width: 120px;
+  height: 40px;
+  background-color: orange;
+  position: absolute;
+  left: 650px;
+  top: 5120px;
 }
 
 /* End of box 3 */
