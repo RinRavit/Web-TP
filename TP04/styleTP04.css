@@ -778,7 +778,6 @@
 .TP04-6 {
   display: flex;
   justify-content: center;
-  /* border: 3px solid rgb(6, 0, 176); */
   margin-top: 50px;
 }
 .box-border-TP04-6 {
@@ -836,7 +835,7 @@
   border: 3px solid black;
   margin: 50px 50px 50px 50px;
 }
-/* grid1x2-top */
+/* grid1x2-7-top */
 .grid1x2-7-top {
   display: flex;
   justify-content: space-between;
@@ -855,7 +854,7 @@
   background-color: orange;
   position: absolute;
   left: 422px;
-  top: 4735px;
+  top: 4730px;
 }
 .box1-middle {
   width: 40px;
@@ -871,7 +870,7 @@
   background-color: orange;
   position: absolute;
   left: 422px;
-  top: 4875px;
+  top: 4870px;
 }
 /* End of box 1 */
 
@@ -902,9 +901,9 @@
   top: 4770px;
 }
 /* End of box 2 */
-/* End of grid1x2-top */
+/* End of grid1x2-7-top */
 
-/* grid1x2-buttom */
+/* grid1x2-7-buttom */
 .grid1x2-7-buttom {
   display: flex;
   justify-content: center;
@@ -942,8 +941,6 @@
   left: 570px;
   top: 5120px;
 }
-
 /* End of box 3 */
-/* End of grid1x2-buttom */
-
-/* End of TP04.4 */
+/* End of grid1x27-7-buttom */
+/* End of TP04.7. Absolute positioning */
