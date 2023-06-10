@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  width: clamp(300px, 100%, 800px);
+  height: 500px;
+  background: #6cff9d;
+}

@@ -1,34 +1,41 @@
 .wrapper {
   max-width: 600px;
   max-height: 400px;
-  background-color: aqua;
 }
 .content {
+  max-width: 600px;
+  max-height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-/* .small {
-  display: none;
-  width: 150px;
-  height: 50px;
-  color: white;
+.big {
+  width: 200px;
+  height: 60px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 74, 111);
-} */
+  background-color: aquamarine;
+  color: white;
+}
 
-@media screen and (width 300px) {
+.small {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
   .small {
-    display: none;
     width: 150px;
-    height: 50px;
+    height: 30px;
+    font-size: 15px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(255, 74, 111);
+  }
+  .big {
+    display: none;
   }
 }
