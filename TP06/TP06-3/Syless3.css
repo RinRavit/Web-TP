@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 500px;
+  height: 600px;
+  border: 2px solid black;
+}
+.nag-bar {
+  display: flex;
+  flex-direction: row;
+}
+.nage-bar > div {
+  width: 20px;
+  height: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(200, 133, 46);
+}
