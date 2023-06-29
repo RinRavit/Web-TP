@@ -13,13 +13,21 @@ header {
   border: 2px solid black;
 }
 .nag-bar {
+  height: 100px;
   display: flex;
   flex-direction: row;
+  gap: 5px;
 }
-.nage-bar > div {
-  width: 20px;
-  height: 10px;
-  display: flex;
-  justify-content: space-between;
+.all,
+.breakfast,
+.lunch,
+.shakes,
+.dinner {
+  width: auto;
+  height: 40px;
   background-color: rgb(200, 133, 46);
+}
+.img2 {
+  width: 5px;
+  height: 52px;
 }
