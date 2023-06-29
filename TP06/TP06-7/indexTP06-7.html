@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP06-7 side bar</title>
+    <link rel="stylesheet" href="Syless7.css" />
+    <script
+      src="https://kit.fontawesome.com/d6d651f030.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <span class="icon-toggler">
+        <i class="fa-solid fa-bars" style="color: #3272e2"></i>
+      </span>
+      <div class="box-cont">
+        <div class="header">
+          <h1>SIDE-BAR</h1>
+          <span class="icon-xmark">
+            <i class="fa-solid fa-xmark" style="color: red"></i>
+          </span>
+        </div>
+        <ul class="nav-lists">
+          <li class="nav-links"><a href="">Home</a></li>
+          <li class="nav-links"><a href="">About</a></li>
+          <li class="nav-links"><a href="">Projects</a></li>
+          <li class="nav-links"><a href="">Contact</a></li>
+        </ul>
+        <div class="box-buttom">
+          <i class="fa-brands fa-facebook" style="color: #3272e2"></i>
+          <i class="fa-brands fa-twitter" style="color: #3272e2"></i>
+          <i class="fa-regular fa-gem" style="color: #3272e2"></i>
+          <i class="fa-brands fa-behance" style="color: #3272e2"></i>
+        </div>
+      </div>
+    </div>
+    <script>
+      const menuToggler = document.querySelector(".icon-toggler");
+      const navLists = document.querySelector(".box-cont");
+      menuToggler.addEventListener("click", () => {
+        navLists.classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>

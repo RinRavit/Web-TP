@@ -1,0 +1,50 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 400px;
+  height: 400px;
+  background-color: rgb(255, 206, 141);
+}
+h1 {
+  font-size: 20px;
+}
+ul,
+a {
+  list-style-type: none;
+  text-decoration: none;
+}
+.icon-toggler {
+  display: flex;
+  justify-content: end;
+  margin: 10px 10px 0 0;
+}
+.icon-xmark {
+  display: flex;
+  justify-content: space-between;
+}
+.box-cont {
+  width: 200px;
+  height: 380px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: antiquewhite;
+  margin: 5px 5px 5px 5px;
+}
+
+.box-buttom {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.nav-lists {
+  margin-top: 20px;
+}
+@media screen {
+  .box-cont.show {
+    display: flex;
+  }
+}

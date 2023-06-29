@@ -14,14 +14,12 @@ h1 {
   font-size: 18px;
 }
 .container {
-  max-width: 800px;
+  width: 700px;
   max-height: 600px;
   border: 2px solid black;
 }
-
 .nav-bar {
-  max-width: 790px;
-  max-height: 40px;
+  max-width: 690px;
   margin: 5px 5px 5px 5px;
   background-color: rgb(189, 189, 189);
   display: flex;
@@ -29,10 +27,12 @@ h1 {
   justify-content: space-between;
 }
 .box-left {
-  display: flex;
+  position: sticky;
+  /* display: flex; */
   align-items: center;
   margin-left: 5px;
 }
+
 .box-middle {
   display: flex;
   justify-content: center;
@@ -44,6 +44,7 @@ h1 {
   align-items: center;
   gap: 10px;
 }
+
 .nav-links > a {
   color: white;
 }
@@ -67,18 +68,31 @@ h1 {
   align-items: center;
   margin: 0 5px 0 5px;
 }
-@media screen and (max-width: 728px) {
-  .container {
-    max-width: 400px;
-    max-height: 600px;
+.icon-toggler {
+  color: white;
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .nav-bar {
+    flex-wrap: wrap;
   }
   .icon-toggler {
-    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: 0 10px 0 0;
   }
   .nav-lists {
     display: none;
+    flex-direction: column;
+    width: 100%;
+    margin: 2.5rem 0;
   }
   .box-right {
     display: none;
+  }
+  .nav-lists.show {
+    display: flex;
   }
 }

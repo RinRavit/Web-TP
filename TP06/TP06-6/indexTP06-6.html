@@ -11,14 +11,15 @@
   </head>
   <body>
     <div class="container">
-      <div class="nav-bar">
+      <header class="nav-bar">
         <div class="box-left">
           <h1>NAV-BAR</h1>
         </div>
-        <span class="icon-toggler">
-          <i class="fa-regular fa-bars"></i>
-        </span>
+
         <div class="box-middle">
+          <span class="icon-toggler">
+            <i class="fa-solid fa-bars" style="color: #3272e2"></i>
+          </span>
           <ul class="nav-lists">
             <li class="nav-links"><a href="">Home</a></li>
             <li class="nav-links"><a href="">About</a></li>
@@ -26,13 +27,21 @@
             <li class="nav-links"><a href="">Contact</a></li>
           </ul>
         </div>
+
         <div class="box-right">
           <i class="fa-brands fa-facebook" style="color: #3272e2"></i>
           <i class="fa-brands fa-twitter" style="color: #3272e2"></i>
           <i class="fa-regular fa-gem" style="color: #3272e2"></i>
           <i class="fa-brands fa-behance" style="color: #3272e2"></i>
         </div>
-      </div>
+      </header>
     </div>
+    <script>
+      const menuToggler = document.querySelector(".icon-toggler");
+      const navLists = document.querySelector(".nav-lists");
+      menuToggler.addEventListener("click", () => {
+        navLists.classList.toggle("show");
+      });
+    </script>
   </body>
 </html>
