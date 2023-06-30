@@ -17,6 +17,7 @@ h1 {
   width: 700px;
   max-height: 600px;
   border: 2px solid black;
+  position: relative;
 }
 .nav-bar {
   max-width: 690px;
@@ -77,8 +78,11 @@ h1 {
     flex-wrap: wrap;
   }
   .icon-toggler {
-    width: 100%;
     display: flex;
+    width: 100%;
+    position: absolute;
+    right: 10px;
+    top: 20px;
     align-items: center;
     justify-content: end;
     margin: 0 10px 0 0;
@@ -86,6 +90,7 @@ h1 {
   .nav-lists {
     display: none;
     flex-direction: column;
+
     width: 100%;
     margin: 2.5rem 0;
   }
