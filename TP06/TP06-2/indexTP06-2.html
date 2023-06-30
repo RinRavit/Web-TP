@@ -15,30 +15,72 @@
         <h1>About</h1>
       </div>
       <div class="section2">
-        <p>Lorem ipsum dolor sit amet consectetur.</p>
+        <div class="box-sub">
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        
       </div>
       <div class="section3">
         <img src="../asset/image/nature-TP06-1.webp" alt="" class="pic" />
       </div>
-      <div class="boox">
-        <div class="section4">
-          <div class="box-button">
-            <div class="history">History</div>
-            <div class="vision">Vision</div>
-            <div class="goals">Goals</div>
-          </div>
-          <div class="box-detail">
-            <div><h5>History</h5></div>
-            <div>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Mollitia totam tenetur cumque distinctio hic maxime doloremque,
-                voluptate minus labore illo.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="boox">
+    <div class="section4">
+      <div class="box-button">
+      <div class="history" onclick="openType('history')" >
+        History
+      </div>
+      <div class="vision" onclick="openType('vision')">
+        Vision
+      </div>
+      <div class="goals" onclick="openType('goals')">
+        Goals
       </div>
     </div>
+  
+
+    <div id="history" class="type">
+      <h2>History</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        enim modi laborum voluptatibus similique veritatis omnis dolores
+        vitae esse voluptas, officiis assumenda id necessitatibus ipsam
+        pariatur excepturi sint tempore incidunt corrupti voluptatum
+        tempora? Temporibus obcaecati autem officia sit mollitia
+        aspernatur similique vitae, at fugiat eaque expedita laboriosam,
+        minus non eligendi.</p>
+    </div>
+
+    <div id="vision" class="type" style="display: none">
+      <h2>Vision</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        enim modi laborum voluptatibus similique veritatis omnis dolores
+        vitae esse voluptas, officiis assumenda id necessitatibus ipsam
+        pariatur excepturi sint tempore incidunt corrupti voluptatum
+        tempora? Temporibus obcaecati autem officia sit mollitia
+        aspernatur similique vitae, at fugiat eaque expedita laboriosam,
+        minus non eligendi.</p>
+    </div>
+
+    <div id="goals" class="type" style="display: none">
+      <h2>Goals</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro
+        enim modi laborum voluptatibus similique veritatis omnis dolores
+        vitae esse voluptas, officiis assumenda id necessitatibus ipsam
+        pariatur excepturi sint tempore incidunt corrupti voluptatum
+        tempora? Temporibus obcaecati autem officia sit mollitia
+        aspernatur similique vitae, at fugiat eaque expedita laboriosam,
+        minus non eligendi.</p>
+    </div>
+  </div>
+</div>
+    <script>
+      function openType(typeName) {
+        var i;
+        var x = document.getElementsByClassName("type");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        document.getElementById(typeName).style.display = "block";
+      }
+    </script>
   </body>
 </html>

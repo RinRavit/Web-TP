@@ -1,0 +1,34 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP06-4</title>
+    <link rel="stylesheet" href="Syless4.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="counter">0</div>
+
+      <div class="btn">
+        <button id="increase">Increase</button>
+        <button id="reset">Reset</button>
+        <button id="decrease">Decrease</button>
+      </div>
+    </div>
+    <script>
+      let count = 0;
+      document.getElementById("increase").onclick = function () {
+        count += 1;
+        document.getElementById("counter").innerHTML = count;
+      };
+      document.getElementById("decrease").onclick = function () {
+        count -= 1;
+        document.getElementById("counter").innerHTML = count;
+      };
+      document.getElementById("reset").onclick = function () {
+        count = 0;
+        document.getElementById("counter").innerHTML = count;
+      };
+    </script>
+  </body>
+</html>

@@ -2,22 +2,119 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TP06-5</title>
+    <link rel="stylesheet" href="Syless5.css" />
   </head>
   <body>
     <div class="container">
-      <div class="Wrapper">
-        <header>Random Color Generator</header>
-        <div class="Ran-color">
-          <div class="text-background">
-            <h1>Background Color:</h1>
-          </div>
-          <div class="box-gen"><a href=""></a></div>
-          <div class="box-reset"><a href=""></a></div>
+      <div id="colorContainer">
+        <div>
+          <h2>Generated Color</h2>
+          <div id="colorBox" class="colorBox"></div>
+          <p id="colorText"></p>
+          <button onclick="color.generate()">Generate Color</button>
+          <button onclick="color.reset()">Reset</button>
         </div>
-        <div class="middle"></div>
-        <div class="Ran-color"></div>
+        <div>
+          <h2>Color Records</h2>
+          <div id="recordContainer"></div>
+        </div>
       </div>
     </div>
+    <script>
+      class Color {
+        constructor(type) {
+          this.colorType = type;
+          this.records = [];
+        }
+
+        generate() {
+          const color = this.getRandomColor();
+          this.updateColorBox(color);
+          this.updateColorText(color);
+          this.records.unshift(color);
+          this.updateRecordContainer();
+        }
+
+        reset() {
+          this.records = [];
+          this.updateColorBox("#000000");
+          this.updateColorText("");
+          this.updateRecordContainer();
+        }
+
+        getRandomNumber() {
+          return Math.floor(Math.random() * 256);
+        }
+
+        getRandomColor() {
+          let color = "";
+
+          if (this.colorType === "HEX") {
+            color = this.generateHexColor();
+          } else {
+            color = this.generateRGBColor();
+          }
+
+          return color;
+        }
+
+        generateHexColor() {
+          const letters = "0123456789ABCDEF";
+          let color = "#";
+
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+
+          return color;
+        }
+
+        generateRGBColor() {
+          const red = this.getRandomNumber();
+          const green = this.getRandomNumber();
+          const blue = this.getRandomNumber();
+
+          return `rgb(${red}, ${green}, ${blue})`;
+        }
+
+        updateColorBox(color) {
+          const colorBox = document.getElementById("colorBox");
+          colorBox.style.backgroundColor = color;
+        }
+
+        updateColorText(color) {
+          const colorText = document.getElementById("colorText");
+          const colorBox = document.createElement("span");
+          colorBox.classList.add("colorBox");
+          colorBox.style.backgroundColor = color;
+          colorText.innerHTML = `Hex: ${color} ${colorBox.outerHTML}`;
+        }
+
+        updateRecordContainer() {
+          const recordContainer = document.getElementById("recordContainer");
+          recordContainer.innerHTML = "";
+
+          for (const color of this.records) {
+            const recordElement = document.createElement("div");
+            const hexElement = document.createElement("span");
+            const colorBox = document.createElement("span");
+            hexElement.textContent = color;
+            colorBox.classList.add("colorBox");
+            colorBox.style.backgroundColor = color;
+            recordElement.appendChild(hexElement);
+            recordElement.appendChild(colorBox);
+            recordElement.classList.add("colorRecord");
+            recordContainer.appendChild(recordElement);
+          }
+        }
+
+        getRecords() {
+          return this.records;
+        }
+      }
+
+      const color = new Color("HEX");
+    </script>
   </body>
 </html>
