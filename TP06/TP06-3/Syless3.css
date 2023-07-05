@@ -24,9 +24,6 @@ header {
   .section {
     grid-template-columns: 1fr;
   }
-  .title {
-    margin-left: 20px;
-  }
 }
 
 .nag-bar {
