@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 600px;
+  height: 400px;
+  background-color: rgb(103, 103, 102);
+}
+.list-option {
+  display: flex;
+  justify-content: space-between;
+}
+.section1 {
+  background-color: aqua;
+}
+.title {
+  background-color: rgb(255, 134, 53);
+}
+
+.Jonh {
+  background-color: brown;
+}
