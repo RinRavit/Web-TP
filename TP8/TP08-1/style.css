@@ -1,0 +1,120 @@
+/* body {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 600px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border: 3px solid black;
+}
+
+.list-option {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px;
+  width: 560px;
+  height: 70px;
+  background-color: rgb(172, 204, 212);
+  border-radius: 5px;
+}
+.section1 {
+  width: auto;
+  background-color: aqua;
+}
+#title {
+  width: 120px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: rgb(195, 192, 190);
+  border: none;
+}
+
+.section2 {
+  width: auto;
+  background-color: aqua;
+}
+#Name {
+  width: 120px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: rgb(255, 134, 53);
+}
+.section3 {
+  width: auto;
+  background-color: aqua;
+}
+#dateline {
+  width: 120px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: rgb(255, 134, 53);
+}
+
+.section4 {
+  width: auto;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#push {
+  width: 50px;
+  height: 30px;
+  background-color: darkmagenta;
+  color: aliceblue;
+} */
+body {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(217, 70, 227);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 600px;
+  /* height: 600px; */
+}
+.list-task {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #ddd;
+  height: 80px;
+  align-items: center;
+  border-radius: 8px;
+}
+table {
+  border-collapse: collapse;
+  border: none;
+  width: 600px;
+}
+th,
+td {
+  margin-right: 10px;
+  padding: 8px;
+  text-align: left;
+  border: solid 1px;
+}
+input {
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+}
+.addbtn {
+  margin-top: 18px;
+  padding: 8px 16px;
+  background-color: rgb(40, 110, 153);
+  border: none;
+  color: white;
+  border-radius: 8px;
+}
+.expired {
+  background-color: red;
+}
+.Delete {
+  background-color: blue;
+}

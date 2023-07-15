@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        background-color: lightskyblue;
+      }
+      .container {
+        border: 3px solid black;
+      }
+      .header {
+        display: flex;
+        justify-content: center;
+      }
+      #add-todo-form {
+        width: 1000px;
+        display: flex;
+        justify-content: center;
+      }
+      .todo-container {
+        width: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #f2f2f2;
+      }
+
+      .todo-container span {
+        margin-right: 10px;
+      }
+
+      .delete-button {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      .list-task {
+        display: flex;
+        justify-content: center;
+      }
+      .input-title {
+        display: flex;
+        /* justify-content: center; */
+        flex-direction: column;
+        color: white;
+      }
+      .input-title > h1 {
+        font-size: 20px;
+        margin: 0;
+      }
+      #todo-title {
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>To-do List with SessionStorage</h1>
+      </div>
+
+      <form id="add-todo-form">
+        <div class="input-title">
+          <h1>Title</h1>
+          <input type="text" id="todo-title" placeholder="Title" required />
+        </div>
+        <div class="input-name">
+          <input type="text" id="todo-name" placeholder="Name" required />
+        </div>
+        <div class="input-dateline">
+          <input type="date" id="todo-dateline" required />
+        </div>
+        <button type="submit">Add</button>
+      </form>
+      <div class="list-task">
+        <div id="todos-container">
+          <!-- The todo items will be dynamically added here -->
+        </div>
+      </div>
+    </div>
+    <script>
+      // Function to create a new todo item
+      function createTodoItem(title, name, dateline) {
+        const todoContainer = document.createElement("div");
+        todoContainer.classList.add("todo-container");
+
+        const todoTitle = document.createElement("span");
+        todoTitle.textContent = title;
+
+        const todoName = document.createElement("span");
+        todoName.textContent = name;
+
+        const todoDateline = document.createElement("span");
+        todoDateline.textContent = dateline;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", () =>
+          deleteTodoItem(todoContainer)
+        );
+
+        todoContainer.appendChild(todoTitle);
+        todoContainer.appendChild(todoName);
+        todoContainer.appendChild(todoDateline);
+        todoContainer.appendChild(deleteButton);
+
+        return todoContainer;
+      }
+
+      // Function to add a new todo item to the list
+      function addTodoItem(title, name, dateline) {
+        const todoItem = createTodoItem(title, name, dateline);
+
+        const todosContainer = document.getElementById("todos-container");
+        todosContainer.appendChild(todoItem);
+      }
+
+      // Function to delete a todo item
+      function deleteTodoItem(todoItem) {
+        const todosContainer = document.getElementById("todos-container");
+        todosContainer.removeChild(todoItem);
+      }
+
+      // Function to save the todos to session storage
+      function saveTodosToSessionStorage() {
+        const todosContainer = document.getElementById("todos-container");
+        const todoItems = todosContainer.querySelectorAll(".todo-container");
+
+        const todos = Array.from(todoItems).map((todoItem) => {
+          const todoTitle =
+            todoItem.querySelector("span:nth-child(1)").textContent;
+          const todoName =
+            todoItem.querySelector("span:nth-child(2)").textContent;
+          const todoDateline =
+            todoItem.querySelector("span:nth-child(3)").textContent;
+
+          return {
+            title: todoTitle,
+            name: todoName,
+            dateline: todoDateline,
+          };
+        });
+
+        sessionStorage.setItem("todos", JSON.stringify(todos));
+      }
+
+      // Function to load todos from session storage
+      function loadTodosFromSessionStorage() {
+        const todos = JSON.parse(sessionStorage.getItem("todos")) || [];
+
+        todos.forEach((todo) => {
+          addTodoItem(todo.title, todo.name, todo.dateline);
+        });
+      }
+
+      // Add event listener for the add todo form
+      const addTodoForm = document.getElementById("add-todo-form");
+      addTodoForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const todoTitleInput = document.getElementById("todo-title");
+        const todoNameInput = document.getElementById("todo-name");
+        const todoDatelineInput = document.getElementById("todo-dateline");
+
+        const todoTitle = todoTitleInput.value.trim();
+        const todoName = todoNameInput.value.trim();
+        const todoDateline = todoDatelineInput.value;
+
+        if (todoTitle !== "" && todoName !== "" && todoDateline !== "") {
+          addTodoItem(todoTitle, todoName, todoDateline);
+          saveTodosToSessionStorage();
+
+          todoTitleInput.value = "";
+          todoNameInput.value = "";
+          todoDatelineInput.value = "";
+        }
+      });
+
+      // Load todos from session storage on page load
+      loadTodosFromSessionStorage();
+    </script>
+  </body>
+</html>

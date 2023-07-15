@@ -1,31 +1,81 @@
-<html lang="en">
+<!-- <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styel.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
   </head>
   <body>
     <div class="container">
       <div><h1>To-do List with LocalStorage</h1></div>
       <div class="list-option">
         <div class="section1">
-            <div>Task title</div>
-            <div class="title" >ff</div>
+          <div>Task title</div>
+          <input id="title" placeholder="Title"></input>
         </div>
-        <div>
-            div>Task title</div>
-            <div class="John">eee</div>
+        <div class="section2">
+          <div>Task title</div>
+          <input id="Name" placeholder="John"></input>
         </div>
-        <div>
-            <div>Task title</div>
-            <div class="Dateline">ff</div>
+        <div class="section3">
+          <div>Task title</div>
+          <input id="dateline" type="date"></input>
         </div>
-        <div>
-            <div>Add</div>
+        <div class="section4">
+          <button id="push">Add</button>
         </div>
       </div>
-      <div></div>
+      <div id="list-task">
+        <div class="row">
+          <div class="colunm">Project Web</div>
+          <div class="colunm">Ravit</div>
+          <div class="colunm">14/07/2023</div>
+          <div class="colunm">
+            
+          </div>
+          
+        </div>
+      </div>
+      
     </div>
+  </body>
+</html> -->
+
+<<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-do List with LocalStorage</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Todo List with LocalStorage</h1>
+      <div class="list-task">
+        <div>
+          <div>Task title</div>
+          <input type="text" id="title" placeholder="Title" />
+        </div>
+        <div>
+          <div>Assingnee</div>
+          <input type="text" id="name" placeholder="Name" />
+        </div>
+        <div>
+          <div>Dateline</div>
+          <input type="date" id="date" />
+        </div>
+        <button onclick="addTodo()" class="addbtn">Add Todo</button>
+      </div>
+
+      <table id="todoTable">
+        <!-- <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr> -->
+      </table>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>

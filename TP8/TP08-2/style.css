@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+#add-todo-form {
+  width: 600px;
+  background-color: rgb(101, 246, 246);
+}
+.todo-container {
+  margin-bottom: 10px;
+}
+
+.todo-container span {
+  font-weight: bold;
+}
+
+.todo-container .delete-button {
+  margin-left: 10px;
+}

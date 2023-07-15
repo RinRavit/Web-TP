@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Todo List with SessionStorage</h1>
+
+    <form id="add-todo-form">
+      <label for="title-input">Title:</label>
+      <input
+        type="text"
+        id="title-input"
+        placeholder="Enter a title"
+        required
+      />
+      <div class="section1">
+        <div class="name-list">Assingnee</div>
+        <label for="name-input"></label>
+      </div>
+      <input
+        type="text"
+        id="name-input"
+        placeholder="Enter your name"
+        required
+      />
+      <label for="dateline-input">Dateline:</label>
+      <input type="date" id="dateline-input" required />
+      <button type="submit">Add Todo</button>
+    </form>
+
+    <div id="todos-container">
+      <!-- The todo items will be dynamically added here -->
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
