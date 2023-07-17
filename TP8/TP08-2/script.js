@@ -1,73 +1,65 @@
-// Function to create a new todo item
 function createTodoItem(title, name, dateline) {
   const todoContainer = document.createElement("div");
   todoContainer.classList.add("todo-container");
 
-  const titleSpan = document.createElement("span");
-  titleSpan.textContent = title;
+  const todoTitle = document.createElement("span");
+  todoTitle.textContent = title;
 
-  const nameLabel = document.createElement("label");
-  nameLabel.textContent = "Name: ";
-  const nameSpan = document.createElement("span");
-  nameSpan.textContent = name;
+  const todoName = document.createElement("span");
+  todoName.textContent = name;
 
-  const datelineLabel = document.createElement("label");
-  datelineLabel.textContent = "Dateline: ";
-  const datelineSpan = document.createElement("span");
-  datelineSpan.textContent = dateline;
+  const todoDateline = document.createElement("span");
+  todoDateline.textContent = dateline;
 
   const deleteButton = document.createElement("button");
-  deleteButton.classList.add("delete-button");
+  deleteButton.classList.add("delete-btn");
   deleteButton.textContent = "Delete";
-  deleteButton.addEventListener("click", function () {
-    todoContainer.remove();
-    saveTodosToSessionStorage();
-  });
 
-  todoContainer.appendChild(titleSpan);
-  todoContainer.appendChild(document.createElement("br"));
-  todoContainer.appendChild(nameLabel);
-  todoContainer.appendChild(nameSpan);
-  todoContainer.appendChild(document.createElement("br"));
-  todoContainer.appendChild(datelineLabel);
-  todoContainer.appendChild(datelineSpan);
-  todoContainer.appendChild(document.createElement("br"));
+  deleteButton.addEventListener("click", () => deleteTodoItem(todoContainer));
+  todoContainer.appendChild(todoTitle);
+  todoContainer.appendChild(todoName);
+  todoContainer.appendChild(todoDateline);
   todoContainer.appendChild(deleteButton);
 
   return todoContainer;
 }
 
-// Function to add a new todo item to the list
+// Function to add a new task item to the list
 function addTodoItem(title, name, dateline) {
   const todoItem = createTodoItem(title, name, dateline);
 
   const todosContainer = document.getElementById("todos-container");
   todosContainer.appendChild(todoItem);
-
-  saveTodosToSessionStorage();
 }
 
-// Function to save the todos to SessionStorage
+// Function to delete a todo item
+function deleteTodoItem(todoItem) {
+  const todosContainer = document.getElementById("todos-container");
+  todosContainer.removeChild(todoItem);
+}
+
+// Function to save the todos to session storage
 function saveTodosToSessionStorage() {
   const todosContainer = document.getElementById("todos-container");
-  const todoItems = todosContainer.getElementsByClassName("todo-container");
+  const todoItems = todosContainer.querySelectorAll(".todo-container");
 
   const todos = Array.from(todoItems).map((todoItem) => {
-    const titleSpan = todoItem.querySelector("span");
-    const nameSpan = todoItem.querySelectorAll("span")[1];
-    const datelineSpan = todoItem.querySelectorAll("span")[2];
+    const todoTitle = todoItem.querySelector("span:nth-child(1)").textContent;
+    const todoName = todoItem.querySelector("span:nth-child(2)").textContent;
+    const todoDateline =
+      todoItem.querySelector("span:nth-child(3)").textContent;
 
     return {
-      title: titleSpan.textContent,
-      name: nameSpan.textContent,
-      dateline: datelineSpan.textContent,
+      title: todoTitle,
+      name: todoName,
+      dateline: todoDateline,
     };
   });
 
   sessionStorage.setItem("todos", JSON.stringify(todos));
 }
 
-// Function to load todos from SessionStorage
+// Function to load todos from session storage
 function loadTodosFromSessionStorage() {
   const todos = JSON.parse(sessionStorage.getItem("todos")) || [];
 
@@ -76,27 +68,28 @@ function loadTodosFromSessionStorage() {
   });
 }
 
-// Add event listener for the add todo form
-const addTodoForm = document.getElementById("add-todo-form");
+// Add event listener for the add task
+const addTodoForm = document.getElementById("add-task");
 addTodoForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const titleInput = document.getElementById("title-input");
-  const nameInput = document.getElementById("name-input");
-  const datelineInput = document.getElementById("dateline-input");
+  const todoTitleInput = document.getElementById("todo-title");
+  const todoNameInput = document.getElementById("todo-name");
+  const todoDatelineInput = document.getElementById("todo-dateline");
 
-  const title = titleInput.value.trim();
-  const name = nameInput.value.trim();
-  const dateline = datelineInput.value;
+  const todoTitle = todoTitleInput.value.trim();
+  const todoName = todoNameInput.value.trim();
+  const todoDateline = todoDatelineInput.value;
 
-  if (title !== "" && name !== "" && dateline !== "") {
-    addTodoItem(title, name, dateline);
+  if (todoTitle !== "" && todoName !== "" && todoDateline !== "") {
+    addTodoItem(todoTitle, todoName, todoDateline);
+    saveTodosToSessionStorage();
 
-    titleInput.value = "";
-    nameInput.value = "";
-    datelineInput.value = "";
+    todoTitleInput.value = "";
+    todoNameInput.value = "";
+    todoDatelineInput.value = "";
   }
 });
 
-// Load todos from SessionStorage on page load
+// Load task from session storage on page load
 loadTodosFromSessionStorage();

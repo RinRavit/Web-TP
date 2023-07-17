@@ -1,39 +1,37 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Todo List</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP08-2-Todo with SessionStorage</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Todo List with SessionStorage</h1>
-
-    <form id="add-todo-form">
-      <label for="title-input">Title:</label>
-      <input
-        type="text"
-        id="title-input"
-        placeholder="Enter a title"
-        required
-      />
-      <div class="section1">
-        <div class="name-list">Assingnee</div>
-        <label for="name-input"></label>
+    <div class="container">
+      <div class="header">
+        <h1>To-do List with SessionStorage</h1>
       </div>
-      <input
-        type="text"
-        id="name-input"
-        placeholder="Enter your name"
-        required
-      />
-      <label for="dateline-input">Dateline:</label>
-      <input type="date" id="dateline-input" required />
-      <button type="submit">Add Todo</button>
-    </form>
 
-    <div id="todos-container">
-      <!-- The todo items will be dynamically added here -->
+      <form id="add-task">
+        <div class="input-title">
+          <h1>Title</h1>
+          <input type="text" id="todo-title" placeholder="Title" required />
+        </div>
+        <div class="input-name">
+          <h1>Assingnee</h1>
+          <input type="text" id="todo-name" placeholder="Name" required />
+        </div>
+        <div class="input-dateline">
+          <h1>Dateline</h1>
+          <input type="date" id="todo-dateline" required />
+        </div>
+        <button id="btn-add" type="submit">Add</button>
+      </form>
+      <div class="list-task">
+        <div id="todos-container">
+          <!-- The todo items will be dynamically added here -->
+        </div>
+      </div>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>

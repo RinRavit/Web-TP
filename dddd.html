@@ -4,24 +4,29 @@
     <title>Todo List</title>
     <style>
       .container {
-        max-width: 400px;
+        max-width: 600px;
         margin: 0 auto;
+        padding: 20px;
       }
 
       .todo-item {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-left: 50px;
         margin-bottom: 10px;
         padding: 10px;
-        background-color: #f5f5f5;
+        background-color: #f1f1f1;
         border-radius: 10px;
       }
 
-      .todo-item .delete-btn {
+      .todo-item span {
+        flex-grow: 1;
+        margin-right: 10px;
+      }
+
+      .delete-btn {
         color: red;
-        border: none;
-        background: none;
         cursor: pointer;
       }
     </style>
@@ -31,9 +36,9 @@
       <h1>Todo List</h1>
 
       <form id="add-todo-form">
-        <input type="text" id="todo-title" placeholder="Title" required />
-        <input type="text" id="todo-name" placeholder="Name" required />
-        <input type="date" id="todo-dateline" required />
+        <input type="text" id="title-input" placeholder="Title" required />
+        <input type="text" id="name-input" placeholder="Name" required />
+        <input type="date" id="dateline-input" required />
         <button type="submit">Add</button>
       </form>
 
@@ -48,14 +53,27 @@
         const todoItem = document.createElement("div");
         todoItem.classList.add("todo-item");
 
-        const infoDiv = document.createElement("div");
-        infoDiv.textContent = `${title}  ${name} ${dateline}`;
+        const infoContainer = document.createElement("div");
+        infoContainer.classList.add("info-container");
+
+        const titleSpan = document.createElement("span");
+        titleSpan.textContent = title;
+
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = name;
+
+        const datelineSpan = document.createElement("span");
+        datelineSpan.textContent = dateline;
 
         const deleteBtn = document.createElement("button");
         deleteBtn.classList.add("delete-btn");
         deleteBtn.textContent = "Delete";
 
-        todoItem.appendChild(infoDiv);
+        infoContainer.appendChild(titleSpan);
+        infoContainer.appendChild(nameSpan);
+        infoContainer.appendChild(datelineSpan);
+
+        todoItem.appendChild(infoContainer);
         todoItem.appendChild(deleteBtn);
 
         return todoItem;
@@ -68,8 +86,7 @@
         // Add event listener for delete button
         const deleteBtn = todoItem.querySelector(".delete-btn");
         deleteBtn.addEventListener("click", function () {
-          todoItem.remove();
-          saveTodosToSessionStorage();
+          deleteTodoItem(todoItem);
         });
 
         // Add the todo item to the container
@@ -77,29 +94,36 @@
         todosContainer.appendChild(todoItem);
       }
 
-      // Function to save the todos to sessionStorage
-      function saveTodosToSessionStorage() {
+      // Function to delete a todo item
+      function deleteTodoItem(todoItem) {
+        todoItem.remove();
+        saveTodosToLocalStorage();
+      }
+
+      // Function to save the todos to local storage
+      function saveTodosToLocalStorage() {
         const todosContainer = document.getElementById("todos-container");
         const todoItems = todosContainer.querySelectorAll(".todo-item");
 
         const todos = Array.from(todoItems).map((todoItem) => {
-          const infoDiv = todoItem.querySelector("div");
-
-          const [title, name, dateline] = infoDiv.textContent.split(" - ");
+          const infoContainer = todoItem.querySelector(".info-container");
+          const titleSpan = infoContainer.querySelector("span:nth-child(1)");
+          const nameSpan = infoContainer.querySelector("span:nth-child(2)");
+          const datelineSpan = infoContainer.querySelector("span:nth-child(3)");
 
           return {
-            title,
-            name,
-            dateline,
+            title: titleSpan.textContent,
+            name: nameSpan.textContent,
+            dateline: datelineSpan.textContent,
           };
         });
 
-        sessionStorage.setItem("todos", JSON.stringify(todos));
+        localStorage.setItem("todos", JSON.stringify(todos));
       }
 
-      // Function to load todos from sessionStorage
-      function loadTodosFromSessionStorage() {
-        const todos = JSON.parse(sessionStorage.getItem("todos")) || [];
+      // Function to load todos from local storage
+      function loadTodosFromLocalStorage() {
+        const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
         todos.forEach((todo) => {
           addTodoItem(todo.title, todo.name, todo.dateline);
@@ -111,25 +135,25 @@
       addTodoForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const todoTitle = document.getElementById("todo-title");
-        const todoName = document.getElementById("todo-name");
-        const todoDateline = document.getElementById("todo-dateline");
+        const titleInput = document.getElementById("title-input");
+        const nameInput = document.getElementById("name-input");
+        const datelineInput = document.getElementById("dateline-input");
 
-        const title = todoTitle.value.trim();
-        const name = todoName.value.trim();
-        const dateline = todoDateline.value;
+        const title = titleInput.value.trim();
+        const name = nameInput.value.trim();
+        const dateline = datelineInput.value;
 
         if (title !== "" && name !== "") {
           addTodoItem(title, name, dateline);
-          saveTodosToSessionStorage();
-          todoTitle.value = "";
-          todoName.value = "";
-          todoDateline.value = "";
+          saveTodosToLocalStorage();
+          titleInput.value = "";
+          nameInput.value = "";
+          datelineInput.value = "";
         }
       });
 
-      // Load todos from sessionStorage on page load
-      loadTodosFromSessionStorage();
+      // Load todos from local storage on page load
+      loadTodosFromLocalStorage();
     </script>
   </body>
 </html>

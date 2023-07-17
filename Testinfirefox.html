@@ -1,0 +1,559 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Cookie List App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .cookie-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .cookie-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      .cookie-key,
+      .cookie-value {
+        flex: 1;
+      }
+
+      .expired-button {
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .expired-button.expired {
+        background-color: red;
+      }
+
+      .expired-button.active {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cookie List App</h1>
+      <div>
+        <label for="key">Key:</label>
+        <input type="text" id="key" required />
+        <label for="value">Value:</label>
+        <input type="text" id="value" required />
+        <label for="expired">Expired:</label>
+        <input type="checkbox" id="expired" />
+        <button onclick="addCookie()">Add Cookie</button>
+      </div>
+      <ul class="cookie-list" id="cookieList">
+        Cookies will be added here dynamically
+      </ul>
+    </div>
+
+    <script>
+      Function to add a new cookie to the list
+      function addCookie() {
+        const keyInput = document.getElementById("key");
+        const valueInput = document.getElementById("value");
+        const expiredInput = document.getElementById("expired");
+
+        const key = keyInput.value.trim();
+        const value = valueInput.value.trim();
+        const expired = expiredInput.checked;
+
+        if (key !== "" && value !== "") {
+          const cookieList = document.getElementById("cookieList");
+
+          const cookieItem = document.createElement("li");
+          cookieItem.classList.add("cookie-item");
+
+          const cookieKey = document.createElement("div");
+          cookieKey.classList.add("cookie-key");
+          cookieKey.textContent = key;
+
+          const cookieValue = document.createElement("div");
+          cookieValue.classList.add("cookie-value");
+          cookieValue.textContent = value;
+
+          const expiredButton = document.createElement("button");
+          expiredButton.classList.add("expired-button");
+          expiredButton.textContent = "Set Expired";
+          if (expired) {
+            expiredButton.classList.add("expired");
+          } else {
+            expiredButton.classList.add("active");
+          }
+
+          expiredButton.addEventListener("click", function () {
+            if (expiredButton.classList.contains("expired")) {
+              expiredButton.classList.remove("expired");
+              expiredButton.classList.add("active");
+            } else {
+              expiredButton.classList.remove("active");
+              expiredButton.classList.add("expired");
+            }
+          });
+
+          cookieItem.appendChild(cookieKey);
+          cookieItem.appendChild(cookieValue);
+          cookieItem.appendChild(expiredButton);
+
+          cookieList.appendChild(cookieItem);
+
+          Store the cookie in the browser's local storage
+          document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(
+            value
+          )}; expires=${expired ? new Date(0).toUTCString() : ""}`;
+        }
+      }
+
+      Function to load cookies from browser's local storage
+      function loadCookiesFromLocalStorage() {
+        const cookies = document.cookie.split(";");
+
+        for (const cookie of cookies) {
+          const [key, value] = cookie.split("=");
+
+          const cookieList = document.getElementById("cookieList");
+
+          const cookieItem = document.createElement("li");
+          cookieItem.classList.add("cookie-item");
+
+          const cookieKey = document.createElement("div");
+          cookieKey.classList.add("cookie-key");
+          cookieKey.textContent = decodeURIComponent(key.trim());
+
+          const cookieValue = document.createElement("div");
+          cookieValue.classList.add("cookie-value");
+          cookieValue.textContent = decodeURIComponent(value.trim());
+
+          const expiredButton = document.createElement("button");
+          expiredButton.classList.add("expired-button");
+          expiredButton.textContent = "Set Expired";
+          expiredButton.classList.add("expired");
+
+          expiredButton.addEventListener("click", function () {
+            if (expiredButton.classList.contains("expired")) {
+              expiredButton.classList.remove("expired");
+              expiredButton.classList.add("active");
+            } else {
+              expiredButton.classList.remove("active");
+              expiredButton.classList.add("expired");
+            }
+          });
+
+          cookieItem.appendChild(cookieKey);
+          cookieItem.appendChild(cookieValue);
+          cookieItem.appendChild(expiredButton);
+
+          cookieList.appendChild(cookieItem);
+        }
+      }
+
+      Load cookies from browser's local storage on page load
+      loadCookiesFromLocalStorage();
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Cookie List App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .cookie-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .cookie-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      .cookie-key,
+      .cookie-value {
+        flex: 1;
+      }
+
+      .expired-button {
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .expired-button.expired {
+        background-color: red;
+      }
+
+      .expired-button.active {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cookie List App</h1>
+      <div>
+        <label for="key">Key:</label>
+        <input type="text" id="key" required />
+        <label for="value">Value:</label>
+        <input type="text" id="value" required />
+        <label for="expired">Expired:</label>
+        <input type="checkbox" id="expired" />
+        <button onclick="addCookie()">Add Cookie</button>
+      </div>
+      <ul class="cookie-list" id="cookieList">
+        Cookies will be added here dynamically
+      </ul>
+    </div>
+
+    <script>
+      Function to add a new cookie to the list
+      function addCookie() {
+        const keyInput = document.getElementById("key");
+        const valueInput = document.getElementById("value");
+        const expiredInput = document.getElementById("expired");
+
+        const key = keyInput.value.trim();
+        const value = valueInput.value.trim();
+        const expired = expiredInput.checked;
+
+        if (key !== "" && value !== "") {
+          const cookieList = document.getElementById("cookieList");
+
+          const cookieItem = document.createElement("li");
+          cookieItem.classList.add("cookie-item");
+
+          const cookieKey = document.createElement("div");
+          cookieKey.classList.add("cookie-key");
+          cookieKey.textContent = key;
+
+          const cookieValue = document.createElement("div");
+          cookieValue.classList.add("cookie-value");
+          cookieValue.textContent = value;
+
+          const expiredButton = document.createElement("button");
+          expiredButton.classList.add("expired-button");
+          expiredButton.textContent = "Set Expired";
+          if (expired) {
+            expiredButton.classList.add("expired");
+          } else {
+            expiredButton.classList.add("active");
+          }
+
+          expiredButton.addEventListener("click", function () {
+            if (expiredButton.classList.contains("expired")) {
+              expiredButton.classList.remove("expired");
+              expiredButton.classList.add("active");
+            } else {
+              expiredButton.classList.remove("active");
+              expiredButton.classList.add("expired");
+            }
+          });
+
+          cookieItem.appendChild(cookieKey);
+          cookieItem.appendChild(cookieValue);
+          cookieItem.appendChild(expiredButton);
+
+          cookieList.appendChild(cookieItem);
+
+          Store the cookie in the browser's local storage
+          document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(
+            value
+          )}; expires=${expired ? new Date(0).toUTCString() : ""}`;
+        }
+      }
+
+      Function to load cookies from browser's local storage
+      function loadCookiesFromLocalStorage() {
+        const cookies = document.cookie.split(";");
+
+        for (const cookie of cookies) {
+          const [key, value] = cookie.split("=");
+
+          const cookieList = document.getElementById("cookieList");
+
+          const cookieItem = document.createElement("li");
+          cookieItem.classList.add("cookie-item");
+
+          const cookieKey = document.createElement("div");
+          cookieKey.classList.add("cookie-key");
+          cookieKey.textContent = decodeURIComponent(key.trim());
+
+          const cookieValue = document.createElement("div");
+          cookieValue.classList.add("cookie-value");
+          cookieValue.textContent = decodeURIComponent(value.trim());
+
+          const expiredButton = document.createElement("button");
+          expiredButton.classList.add("expired-button");
+          expiredButton.textContent = "Set Expired";
+          expiredButton.classList.add("expired");
+
+          expiredButton.addEventListener("click", function () {
+            if (expiredButton.classList.contains("expired")) {
+              expiredButton.classList.remove("expired");
+              expiredButton.classList.add("active");
+            } else {
+              expiredButton.classList.remove("active");
+              expiredButton.classList.add("expired");
+            }
+          });
+
+          cookieItem.appendChild(cookieKey);
+          cookieItem.appendChild(cookieValue);
+          cookieItem.appendChild(expiredButton);
+
+          cookieList.appendChild(cookieItem);
+        }
+      }
+
+      Load cookies from browser's local storage on page load
+      loadCookiesFromLocalStorage();
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cookie Manager</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .cookie-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+      .cookie-item {
+        width: 200px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      .cookie-item .expired-button {
+        background-color: blue;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+      }
+
+      .cookie-item .delete-button {
+        background-color: red;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cookie Manager</h1>
+
+      <form id="cookie-form">
+        <label for="key-input">Key:</label>
+        <input type="text" id="key-input" required />
+
+        <label for="value-input">Value:</label>
+        <input type="text" id="value-input" required />
+
+        <label for="expired-input">Expired:</label>
+        <input type="date" id="expired-input" required />
+
+        <button type="submit">Create Cookie</button>
+      </form>
+
+      <div class="cookie-list" id="cookie-list">
+        <!-- The cookie items will be dynamically added here -->
+      </div>
+    </div>
+
+    <script>
+      // Function to create a cookie item
+      function createCookieItem(key, value, expired) {
+        const cookieItem = document.createElement("div");
+        cookieItem.classList.add("cookie-item");
+
+        const keyElement = document.createElement("p");
+        keyElement.textContent = `Key: ${key}`;
+
+        const valueElement = document.createElement("p");
+        valueElement.textContent = `Value: ${value}`;
+
+        const expiredElement = document.createElement("p");
+        expiredElement.textContent = `Expired: ${expired}`;
+
+        const setExpiredButton = document.createElement("button");
+        setExpiredButton.classList.add("expired-button");
+        setExpiredButton.textContent = "Set Expired";
+
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.textContent = "Delete";
+
+        cookieItem.appendChild(keyElement);
+        cookieItem.appendChild(valueElement);
+        cookieItem.appendChild(expiredElement);
+        cookieItem.appendChild(setExpiredButton);
+        cookieItem.appendChild(deleteButton);
+
+        return cookieItem;
+      }
+
+      // Function to add a new cookie item to the list
+      function addCookieItem(key, value, expired) {
+        const cookieItem = createCookieItem(key, value, expired);
+
+        // Add event listener for set expired button
+        const setExpiredButton = cookieItem.querySelector(".expired-button");
+        setExpiredButton.addEventListener("click", function () {
+          setCookieExpired(key);
+        });
+
+        // Add event listener for delete button
+        const deleteButton = cookieItem.querySelector(".delete-button");
+        deleteButton.addEventListener("click", function () {
+          deleteCookie(key);
+        });
+
+        // Add the cookie item to the list
+        const cookieList = document.getElementById("cookie-list");
+        cookieList.appendChild(cookieItem);
+      }
+
+      // Function to set cookie expired
+      function setCookieExpired(key) {
+        const date = new Date();
+        date.setTime(date.getTime() - 1);
+        document.cookie = `${key}=; expires=${date.toUTCString()}`;
+        updateCookieList();
+      }
+
+      // Function to delete a cookie
+      function deleteCookie(key) {
+        document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+        updateCookieList();
+      }
+
+      // Function to update the cookie list
+      function updateCookieList() {
+        const cookieList = document.getElementById("cookie-list");
+        cookieList.innerHTML = "";
+
+        const cookies = document.cookie.split(";");
+
+        cookies.forEach((cookie) => {
+          const [key, value] = cookie.trim().split("=");
+
+          const expired = getCookieExpiration(key);
+          const isExpired = expired ? new Date(expired) < new Date() : false;
+
+          addCookieItem(key, value, expired);
+
+          if (isExpired) {
+            const currentCookieItem = cookieList.lastChild;
+            currentCookieItem.querySelector(".expired-button").style.display =
+              "none";
+            currentCookieItem.querySelector(".delete-button").style.display =
+              "block";
+          } else {
+            const currentCookieItem = cookieList.lastChild;
+            currentCookieItem.querySelector(".expired-button").style.display =
+              "block";
+            currentCookieItem.querySelector(".delete-button").style.display =
+              "none";
+          }
+        });
+      }
+
+      // Function to get the expiration date of a cookie
+      function getCookieExpiration(key) {
+        const cookies = document.cookie.split(";");
+
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+
+          if (cookie.startsWith(key)) {
+            const cookieParts = cookie.split("=");
+            return cookieParts[1];
+          }
+        }
+
+        return null;
+      }
+
+      // Add event listener for the cookie form
+      const cookieForm = document.getElementById("cookie-form");
+      cookieForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const keyInput = document.getElementById("key-input");
+        const valueInput = document.getElementById("value-input");
+        const expiredInput = document.getElementById("expired-input");
+
+        const key = keyInput.value.trim();
+        const value = valueInput.value.trim();
+        const expired = expiredInput.value;
+
+        if (key !== "" && value !== "") {
+          document.cookie = `${key}=${value}; expires=${expired}`;
+          updateCookieList();
+          keyInput.value = "";
+          valueInput.value = "";
+          expiredInput.value = "";
+        }
+      });
+
+      // Load cookies on page load
+      updateCookieList();
+    </script>
+  </body>
+</html>

@@ -1,120 +1,107 @@
-/* body {
-  display: flex;
-  justify-content: center;
-}
-.container {
-  width: 600px;
-  height: 400px;
-  background-color: rgb(255, 255, 255);
-  border: 3px solid black;
-}
-
-.list-option {
-  display: flex;
-  justify-content: space-around;
-  margin-left: 20px;
-  width: 560px;
-  height: 70px;
-  background-color: rgb(172, 204, 212);
-  border-radius: 5px;
-}
-.section1 {
-  width: auto;
-  background-color: aqua;
-}
-#title {
-  width: 120px;
-  height: 40px;
-  margin-left: 10px;
-  border-radius: 5px;
-  background-color: rgb(195, 192, 190);
-  border: none;
-}
-
-.section2 {
-  width: auto;
-  background-color: aqua;
-}
-#Name {
-  width: 120px;
-  height: 40px;
-  margin-left: 10px;
-  border-radius: 5px;
-  background-color: rgb(255, 134, 53);
-}
-.section3 {
-  width: auto;
-  background-color: aqua;
-}
-#dateline {
-  width: 120px;
-  height: 40px;
-  margin-left: 10px;
-  border-radius: 5px;
-  background-color: rgb(255, 134, 53);
-}
-
-.section4 {
-  width: auto;
-  background-color: aqua;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#push {
-  width: 50px;
-  height: 30px;
-  background-color: darkmagenta;
-  color: aliceblue;
-} */
 body {
   display: flex;
   justify-content: center;
-  background-color: rgb(217, 70, 227);
+  background-color: lightskyblue;
 }
+.header > h1 {
+  text-align: center;
+}
+
 .container {
+  width: 1000px;
+  border: 3px solid black;
+}
+
+.todo-container {
+  width: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+#add-task {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+}
+.todo-container span {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+.input-title > h1 {
+  font-size: 20px;
+  margin: 0;
+}
+.input-title {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  width: 600px;
-  /* height: 600px; */
+  color: white;
+  margin-left: 5px;
 }
+.input-title > h1 {
+  font-size: 20px;
+  margin: 0;
+}
+#title-input {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+}
+.input-name {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-left: 5px;
+}
+.input-name > h1 {
+  font-size: 20px;
+  margin: 0;
+}
+#name-input {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.input-dateline {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-left: 5px;
+}
+.input-dateline > h1 {
+  font-size: 20px;
+  margin: 0;
+}
+#dateline-input {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+}
+
 .list-task {
   display: flex;
-  justify-content: space-evenly;
-  background-color: #ddd;
-  height: 80px;
-  align-items: center;
-  border-radius: 8px;
+  justify-content: center;
 }
-table {
-  border-collapse: collapse;
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
   border: none;
-  width: 600px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
-th,
-td {
-  margin-right: 10px;
-  padding: 8px;
-  text-align: left;
-  border: solid 1px;
-}
-input {
-  height: 30px;
-  border: none;
-  border-radius: 8px;
-}
-.addbtn {
-  margin-top: 18px;
-  padding: 8px 16px;
-  background-color: rgb(40, 110, 153);
+
+#btn-add {
+  width: 80px;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 10px;
+  margin-left: 5px;
+  background-color: blue;
   border: none;
   color: white;
-  border-radius: 8px;
-}
-.expired {
-  background-color: red;
-}
-.Delete {
-  background-color: blue;
 }

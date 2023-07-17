@@ -1,162 +1,142 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Todo List</title>
+    <title>Cookie List App</title>
     <style>
       body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      .container {
         display: flex;
-        justify-content: center;
-        background-color: #dc6de3;
-      }
-      h1 {
-        position: relative;
-        text-align: center;
-        font-size: 30px;
-      }
-      
-      .Haha {
-        border: 3px solid black;
-      }
-      #add-todo-form {
-        width: 1000px;
-        display: flex;
-        justify-content: center;
-      }
-      .todo-container {
-        width: 500px;
-        height: 30px;
-        display: flex;
-        align-items: center;
+        flex-wrap: wrap;
         justify-content: space-between;
-        background-color: #f5f5f5;
+      }
+
+      .cookie-box {
+        border: 1px solid #ccc;
         border-radius: 10px;
         padding: 10px;
+        width: 300px;
+        margin-bottom: 20px;
+      }
+
+      .cookie-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 10px;
       }
-      input {
-        width: 100px;
-        border-radius: 10%;
-      }
-      .todo-container button {
-        border: none;
-        background-color: #dc3545;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button {
-        background-color: blue;
-        color: white;
-        border-radius: 20px;
-      }
-      .list-task {
+
+      .cookie-expire {
         display: flex;
-        justify-content: center;
+        align-items: center;
+      }
+
+      .cookie-expire input[type="date"] {
+        margin-right: 10px;
       }
     </style>
   </head>
   <body>
-    <div class="Haha">
-      <h1>Todo List with SessionStorage</h1>
-      <form id="Add-task">
-        <div for="title-input">Title:</div>
-        <input type="text" id="title-input" required />
-        <div for="name-input">Name:</div>
-        <input type="text" id="name-input" required />
-        <div for="date-input">Deadline:</div>
-        <input type="date" id="date-input" required />
-        <button type="submit">Add Todo</button>
-      </form>
-      <div class="list-task">
-        <div id="todos-container">
-          <!-- The todo items will be dynamically added here -->
-        </div>
+    <h1>Cookie List App</h1>
+
+    <div class="container" id="cookie-container">
+      <!-- Cookies will be dynamically added here -->
+    </div>
+
+    <div>
+      <h2>Add New Cookie</h2>
+      <div>
+        <label for="key">Key:</label>
+        <input type="text" id="key" required />
+      </div>
+      <div>
+        <label for="value">Value:</label>
+        <input type="text" id="value" required />
+      </div>
+      <div class="cookie-expire">
+        <label for="expire">Expires:</label>
+        <input type="date" id="expire" />
+      </div>
+      <div>
+        <button onclick="addCookie()">Add Cookie</button>
       </div>
     </div>
+
     <script>
-      // Function to create a new todo item
-      function createTodoItem(title, name, deadline) {
-        const todoContainer = document.createElement("div");
-        todoContainer.classList.add("todo-container");
+      function addCookie() {
+        const keyInput = document.getElementById("key");
+        const valueInput = document.getElementById("value");
+        const expireInput = document.getElementById("expire");
 
-        const todoInfo = document.createElement("div");
-        todoInfo.textContent = `Title: ${title} | Name: ${name} | Deadline: ${deadline}`;
+        const key = keyInput.value;
+        const value = valueInput.value;
+        const expire = expireInput.value;
 
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click", function () {
-          todoContainer.remove();
-          saveTodosToSessionStorage();
-        });
-
-        todoContainer.appendChild(todoInfo);
-        todoContainer.appendChild(deleteButton);
-
-        return todoContainer;
-      }
-
-      // Function to add a new todo item to the list
-      function addTodoItem(title, name, deadline) {
-        const todoItem = createTodoItem(title, name, deadline);
-
-        const todosContainer = document.getElementById("todos-container");
-        todosContainer.appendChild(todoItem);
-      }
-
-      // Function to save the todos to session storage
-      function saveTodosToSessionStorage() {
-        const todosContainer = document.getElementById("todos-container");
-        const todoItems = todosContainer.querySelectorAll(".todo-container");
-
-        const todos = Array.from(todoItems).map((todoItem) => {
-          const todoInfo = todoItem.querySelector("div");
-          const [title, name, deadline] = todoInfo.textContent.split("  | ");
-
-          return {
-            title: title.replace("Title: ", ""),
-            name: name.replace("Name: ", ""),
-            deadline: deadline.replace("Deadline: ", ""),
+        if (key && value) {
+          const cookieData = {
+            key,
+            value,
+            expire,
           };
-        });
 
-        sessionStorage.setItem("todos", JSON.stringify(todos));
-      }
+          const cookieJSON = JSON.stringify(cookieData);
+          document.cookie = `${key}=${cookieJSON}; expires=${expire}`;
 
-      // Function to load todos from session storage
-      function loadTodosFromSessionStorage() {
-        const todos = JSON.parse(sessionStorage.getItem("todos")) || [];
+          keyInput.value = "";
+          valueInput.value = "";
+          expireInput.value = "";
 
-        todos.forEach((todo) => {
-          addTodoItem(todo.title, todo.name, todo.deadline);
-        });
-      }
-
-      // Add event listener for the add todo form
-      const addTodoForm = document.getElementById("Add-task");
-      addTodoForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const titleInput = document.getElementById("title-input");
-        const nameInput = document.getElementById("name-input");
-        const dateInput = document.getElementById("date-input");
-
-        const title = titleInput.value.trim();
-        const name = nameInput.value.trim();
-        const deadline = dateInput.value;
-
-        if (title !== "" && name !== "") {
-          addTodoItem(title, name, deadline);
-          saveTodosToSessionStorage();
-
-          titleInput.value = "";
-          nameInput.value = "";
-          dateInput.value = "";
+          loadCookies();
         }
-      });
+      }
 
-      // Load todos from session storage on page load
-      loadTodosFromSessionStorage();
+      function deleteCookie(key) {
+        document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+        loadCookies();
+      }
+
+      function loadCookies() {
+        const cookieContainer = document.getElementById("cookie-container");
+        cookieContainer.innerHTML = "";
+
+        const cookies = document.cookie.split("; ");
+
+        cookies.forEach((cookie) => {
+          const [key, value] = cookie.split("=");
+          const cookieData = JSON.parse(value);
+
+          const cookieBox = document.createElement("div");
+          cookieBox.classList.add("cookie-box");
+
+          const cookieRow = document.createElement("div");
+          cookieRow.classList.add("cookie-row");
+
+          const cookieText = document.createElement("span");
+          cookieText.textContent = `${cookieData.key}: ${cookieData.value}`;
+          cookieRow.appendChild(cookieText);
+
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete";
+          deleteButton.onclick = () => deleteCookie(cookieData.key);
+          cookieRow.appendChild(deleteButton);
+
+          cookieBox.appendChild(cookieRow);
+
+          if (cookieData.expire) {
+            const expireDate = new Date(cookieData.expire).toLocaleDateString();
+            const expirationInfo = document.createElement("div");
+            expirationInfo.textContent = `Expires: ${expireDate}`;
+            cookieBox.appendChild(expirationInfo);
+          }
+
+          cookieContainer.appendChild(cookieBox);
+        });
+      }
+
+      loadCookies();
     </script>
   </body>
 </html>

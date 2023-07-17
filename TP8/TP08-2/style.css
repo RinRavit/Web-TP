@@ -1,19 +1,100 @@
 body {
   display: flex;
   justify-content: center;
+  background-color: lightskyblue;
 }
-#add-todo-form {
-  width: 600px;
-  background-color: rgb(101, 246, 246);
+.container {
+  border: 3px solid black;
+}
+.header {
+  display: flex;
+  justify-content: center;
+}
+#add-task {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
 }
 .todo-container {
-  margin-bottom: 10px;
+  width: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
 }
 
 .todo-container span {
-  font-weight: bold;
+  margin-right: 10px;
 }
 
-.todo-container .delete-button {
-  margin-left: 10px;
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.list-task {
+  display: flex;
+  justify-content: center;
+}
+.input-title {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.input-title > h1 {
+  font-size: 20px;
+  margin: 0;
+}
+#todo-title {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+}
+.input-name {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-left: 5px;
+}
+.input-name > h1 {
+  font-size: 20px;
+  margin: 0;
+}
+#todo-name {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.input-dateline {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-left: 5px;
+}
+.input-dateline > h1 {
+  font-size: 20px;
+  margin: 0;
+}
+#todo-dateline {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+#btn-add {
+  width: 80px;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 10px;
+  margin-left: 5px;
+  background-color: blue;
+  border: none;
+  color: white;
 }

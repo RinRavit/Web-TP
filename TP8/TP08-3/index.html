@@ -1,135 +1,39 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Todo List</title>
-    <style>
-      .todo-container {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-      }
-
-      .todo-container input[type="checkbox"] {
-        margin-right: 5px;
-      }
-
-      .todo-container span {
-        margin-right: 10px;
-      }
-
-      .todo-container .box {
-        width: 20px;
-        height: 20px;
-        border: 1px solid #000;
-        margin-right: 10px;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP08-3. Cookie</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Todo List</h1>
+    <div class="container">
+      <div class="header">
+        <h1>Cookie Management</h1>
+      </div>
 
-    <form id="add-todo-form">
-      <label for="title-input">Title:</label>
-      <input type="text" id="title-input" required />
-      <br />
-      <label for="name-input">Name:</label>
-      <input type="text" id="name-input" required />
-      <br />
-      <label for="dateline-input">Dateline:</label>
-      <input type="date" id="dateline-input" required />
-      <br />
-      <button type="submit">Add</button>
-    </form>
+      <form id="add-cookie">
+        <div class="input-key">
+          <h1>Key</h1>
+          <input type="text" id="key" required />
+        </div>
 
-    <div id="todos-container">
-      <!-- The todo items will be dynamically added here -->
+        <div class="input-value">
+          <h1>Value</h1>
+          <input type="text" id="value" required />
+        </div>
+
+        <div class="input-value">
+          <h1>Expired</h1>
+          <input type="date" id="expired" required />
+        </div>
+        <button id="btn-add" type="submit">Add Cookie</button>
+      </form>
+      <div class="list-task">
+        <div id="cookie-list">
+          <!-- The cookie items will be dynamically added here -->
+        </div>
+      </div>
     </div>
-
-    <script>
-      // Function to create a new todo item
-      function createTodoItem(title, name, dateline) {
-        const todoContainer = document.createElement("div");
-        todoContainer.classList.add("todo-container");
-
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-
-        const span = document.createElement("span");
-        span.textContent = `${title} - ${name} - ${dateline}`;
-
-        const box = document.createElement("div");
-        box.classList.add("box");
-
-        todoContainer.appendChild(checkbox);
-        todoContainer.appendChild(span);
-        todoContainer.appendChild(box);
-
-        return todoContainer;
-      }
-
-      // Function to add a new todo item to the list
-      function addTodoItem(title, name, dateline) {
-        const todoItem = createTodoItem(title, name, dateline);
-
-        // Add the todo item to the container
-        const todosContainer = document.getElementById("todos-container");
-        todosContainer.appendChild(todoItem);
-      }
-
-      // Function to save the todos to session storage
-      function saveTodosToSessionStorage() {
-        const todosContainer = document.getElementById("todos-container");
-        const todoItems = todosContainer.querySelectorAll(".todo-container");
-
-        const todos = Array.from(todoItems).map((todoItem) => {
-          const checkbox = todoItem.querySelector('input[type="checkbox"]');
-          const span = todoItem.querySelector("span");
-
-          return {
-            title: span.textContent,
-            completed: checkbox.checked,
-          };
-        });
-
-        sessionStorage.setItem("todos", JSON.stringify(todos));
-      }
-
-      // Function to load todos from session storage
-      function loadTodosFromSessionStorage() {
-        const todos = JSON.parse(sessionStorage.getItem("todos")) || [];
-
-        todos.forEach((todo) => {
-          const todoData = todo.title.split(" - ");
-          addTodoItem(todoData[0], todoData[1], todoData[2]);
-        });
-      }
-
-      // Add event listener for the add todo form
-      const addTodoForm = document.getElementById("add-todo-form");
-      addTodoForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const titleInput = document.getElementById("title-input");
-        const nameInput = document.getElementById("name-input");
-        const datelineInput = document.getElementById("dateline-input");
-
-        const title = titleInput.value.trim();
-        const name = nameInput.value.trim();
-        const dateline = datelineInput.value;
-
-        if (title !== "" && name !== "" && dateline !== "") {
-          addTodoItem(title, name, dateline);
-          saveTodosToSessionStorage();
-
-          // Clear input fields
-          titleInput.value = "";
-          nameInput.value = "";
-          datelineInput.value = "";
-        }
-      });
-
-      // Load todos from session storage on page load
-      loadTodosFromSessionStorage();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
